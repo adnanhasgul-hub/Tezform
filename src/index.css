@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@keyframes errorPulse {
+  0%, 100% {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.4);
+    background-color: #fff1f2;
+    transform: scale(1);
+  }
+  50% {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 8px rgba(220, 38, 38, 0.65);
+    background-color: #ffe4e6;
+    transform: scale(1.008);
+  }
+}
+
+.field-error-pulse {
+  animation: errorPulse 1.2s ease-in-out infinite !important;
+  border-width: 2px !important;
+  border-style: solid !important;
+  border-color: #ef4444 !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Custom scrollbar for data tables */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Print Specific Rules for A4 Clinical Research Forms */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 10mm;
+  }
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  .page-break-after {
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .page-break-before {
+    page-break-before: always !important;
+    break-before: page !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+}
+
